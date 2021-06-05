@@ -35,6 +35,7 @@ CSOURCES_C     := $(shell find $(SOURCEDIR) -name '*.c')
 
 # Output
 COUTPUT_SRC    = obj
+COUTPUT_BIN    = bin
 CFINISH_OUTPUT = tfsound
 
 ifeq "$(CVERSION)" "4.4.3"
@@ -42,12 +43,18 @@ ifeq "$(CVERSION)" "4.4.3"
 endif
 
 # Main
-all: check_obj compile finish
+all: check_obj compile compile_binary finish
 
 check_obj:
 	@if [ ! -d $(COUTPUT_SRC) ]; then \
 		mkdir $(COUTPUT_SRC); \
 	fi
+	@if [ ! -d $(COUTPUT_BIN) ]; then \
+		mkdir $(COUTPUT_BIN); \
+	fi
+
+compile_binary:
+	@$(CCOPILER) *.o $(CFLAGS) $(OPTIMIZE) -o $(COUTPUT_BIN)/$(CFINISH_OUTPUT)
 
 compile:
 	@for _source_ in $(CSOURCES_CPP); do \
