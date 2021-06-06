@@ -26,8 +26,9 @@ CVERSION       = $(shell $(CCOPILER) --version | grep ^$(CCOPILER) | sed 's/^.* 
 
 # Flags
 COPTIMIZE      = -O2 -g -Ofast -Os -Og
-CFLAGS         = -Wall -fPIC -fno-inline -finline-functions
-CINCLUDE       = -I .
+CFLAGS         = -Wall -fPIC -fno-inline -finline-functions \
+				 -lSDL2
+CINCLUDE       = -I . -D_REENTRANT
 
 # Source
 CSOURCES_CPP   := $(shell find $(SOURCEDIR) -name '*.cpp')
