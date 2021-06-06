@@ -23,6 +23,9 @@
 #include <iostream>
 #include <string>
 
+#include "../../header/compile/compile.hpp"
+#include "../../header/play/play.hpp"
+
 int main(int argc, const char* argv[]) {
 	// init
 	const char* argv_copy[argc - 1];
@@ -57,11 +60,13 @@ int main(int argc, const char* argv[]) {
 	std::string argv_cheking = argv[1];
 	if(argv_cheking == "--play")
 	{
-
+		__play__namespace__::__section__play__(
+			length_argv_copy, argv_copy);
 	}
 	else if(argv_cheking == "--compile")
 	{
-
+		__compile__name__space__::__section__compile__(
+			length_argv_copy, argv_copy);
 	}
 	else
 	{
