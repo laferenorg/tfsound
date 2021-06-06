@@ -42,7 +42,7 @@ You must have the dependencies.
 ### Compile Command
 You just run this command.
 After you running the command.
-The output file in folder bin.
+The output file in folder build/bin.
 ```bash
 $ make
 ```
