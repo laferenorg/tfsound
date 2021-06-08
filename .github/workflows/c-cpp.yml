@@ -13,5 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: sudo apt install libsdl2-dev
     - name: make
       run: make
